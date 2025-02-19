@@ -56,10 +56,11 @@ def ip_address_mask_search(line):
         
 def write_to_csv(information): # Function to write information list to a CSV file
     data.append(information)
-    with open(output_file_location, 'w', newline='') as csvfile: # Open CSV file in path specified by user input
+    with open(output_file_location, 'w+', newline='') as csvfile: # Open CSV file in path specified by user input
         csvwriter = csv.writer(csvfile, delimiter=',') # Create a csvwriter object
         csvwriter.writerow(headers) # Write the header
         csvwriter.writerows(information) # Write the rest of the data
+    print("Interfaces exported to ",output_file_location)
         
 input_file_location = input('Input file with full file path: ') # Get user input for input location
 output_file_location = input('Desired file output file path (including file name, with .csv extension): ') # Get user input for desired output file name and path
